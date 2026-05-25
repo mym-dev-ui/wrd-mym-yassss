@@ -60,9 +60,13 @@ async function loadSettings() {
 }
 
 useEffect(() => {
-  if (isOpen) {
-    loadSettings()
+  if (!isOpen) return
+
+  const run = async () => {
+    await loadSettings()
   }
+
+  run()
 }, [isOpen])
 
   const handleAddBins = async () => {
