@@ -49,22 +49,21 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<"cards" | "countries">("cards")
 
-  // Load settings when modal opens
-  useEffect(() => {
-    if (isOpen) {
-      loadSettings()
-    }
-  }, [isOpen])
-
-  const loadSettings = async () => {
-    try {
-      const data = await getSettings()
-      setSettings(data)
-    } catch (error) {
-      console.error("Error loading settings:", error)
-      toast.error("فشل تحميل الإعدادات")
-    }
+async function loadSettings() {
+  try {
+    const data = await getSettings()
+    setSettings(data)
+  } catch (error) {
+    console.error("Error loading settings:", error)
+    toast.error("فشل تحميل الإعدادات")
   }
+}
+
+useEffect(() => {
+  if (isOpen) {
+    loadSettings()
+  }
+}, [isOpen])
 
   const handleAddBins = async () => {
     // Split by comma, space, or newline
