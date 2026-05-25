@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && rm -rf .next/cache",
+    "build": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@google-analytics/data": "^5.2.1",
+    "@opennextjs/cloudflare": "latest",
     "autoprefixer": "^10.4.23",
     "date-fns": "^4.1.0",
     "firebase": "^12.6.0",
@@ -30,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.6",
     "firebase-admin": "^13.6.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "latest"
   }
 }
